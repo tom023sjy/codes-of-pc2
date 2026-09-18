@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ upload.cpp -std=c++14 -O2 -static -g3 -o run && time ./run < data.in > data.out && diff -w data.out data.ans
