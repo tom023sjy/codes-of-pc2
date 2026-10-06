@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ set.cpp -std=c++14 -O2 -static -o run && ./run && diff -w set.out set.ans
