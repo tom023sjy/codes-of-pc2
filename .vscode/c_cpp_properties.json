@@ -125,7 +125,7 @@
             "intelliSenseMode": "windows-gcc-x64",
             "mergeConfigurations": false,
             "recursiveIncludes": {},
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "browse": {
                 "limitSymbolsToIncludedHeaders": true
             }
@@ -140,7 +140,7 @@
             "cStandard": "c99",
             "cppStandard": "c++98",
             "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "mergeConfigurations": false,
             "recursiveIncludes": {},
             "browse": {
@@ -160,7 +160,7 @@
             "cStandard": "c11",
             "cppStandard": "c++11",
             "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "mergeConfigurations": false,
             "recursiveIncludes": {},
             "browse": {
@@ -180,7 +180,7 @@
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "mergeConfigurations": false,
             "recursiveIncludes": {},
             "browse": {
@@ -193,7 +193,7 @@
                 "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
@@ -210,7 +210,7 @@
             ],
             "cppStandard": "gnu++23",
             "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "E:/MinGW64/bin/g++.exe",
+            "compilerPath": "D:/MinGW64/bin/g++.exe",
             "mergeConfigurations": false,
             "recursiveIncludes": {},
             "browse": {

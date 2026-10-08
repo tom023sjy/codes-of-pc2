@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+g++ upload.cpp -std=c++14 -O2 -lm -Wall -o run
+time ./run < data.in > data.out
+diff -w data.out data.ans
