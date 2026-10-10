@@ -1,0 +1,8 @@
+do {
+		do {
+			do {
+				if (x[1] == y[1] && x[2] == z[2] && x[3] == y[3] + z[3])
+					yes;
+			} while (next_permutation(z + 1, z + 4));
+		} while (next_permutation(y + 1, y + 4));
+	} while (next_permutation(x + 1, x + 4));
