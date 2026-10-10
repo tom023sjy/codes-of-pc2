@@ -1,0 +1,16 @@
+#!/bin/bash
+g++ rand.cpp -o rnd
+g++ answer.cpp -std=c++14 -O2 -o ans
+g++ upload.cpp -std=c++14 -O2 -o upd
+while true; do
+    echo Running Rander
+    time ./rnd > data.in
+    echo Running Std
+    time ./ans < data.in > data.ans
+    echo Running Upd
+    time ./upd < data.in > data.out
+    if ! diff -w data.out data.ans > /dev/null; then
+        echo "Wrong Answer!"
+        break
+    fi
+done
