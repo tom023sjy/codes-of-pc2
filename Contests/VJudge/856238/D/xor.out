@@ -1,0 +1,30 @@
+
+Microsoft DiskPart version 10.0.19041.3636
+
+Copyright (C) Microsoft Corporation.
+On computer: JS1-37
+
+Disk 0 is now the selected disk.
+
+  Partition ###  Type              Size     Offset
+  -------------  ----------------  -------  -------
+  Partition 1    OEM               1024 MB  1024 KB
+  Partition 2    Primary             10 GB  1025 MB
+  Partition 3    Reserved           463 GB    11 GB
+
+Disk 1 is now the selected disk.
+
+  Partition ###  Type              Size     Offset
+  -------------  ----------------  -------  -------
+  Partition 1    System             300 MB  2048 KB
+  Partition 2    Primary            476 GB   302 MB
+
+Disk 2 is now the selected disk.
+
+  Partition ###  Type              Size     Offset
+  -------------  ----------------  -------  -------
+  Partition 1    Primary             49 GB    31 KB
+
+The disk you specified is not valid.
+
+There is no disk selected.
