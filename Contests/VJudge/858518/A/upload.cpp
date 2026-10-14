@@ -19,8 +19,6 @@ inline int solve() {
     return puts("Yes");
 }
 signed main() {
-    freopen("minmax.in", "r", stdin);
-    freopen("minmax.out", "w", stdout);
     int T;
     cin >> T;
     while (T --) 

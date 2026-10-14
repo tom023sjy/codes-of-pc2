@@ -15,8 +15,6 @@ void dfs(int id, int ft) {
     }
 }
 signed main() {
-    freopen("perm.in", "r", stdin);
-    freopen("perm.out", "w", stdout);
     int n;
     cin >> n;
     for (int i = 1; i <= n; i ++)
