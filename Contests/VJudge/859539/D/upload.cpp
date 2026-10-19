@@ -2,7 +2,7 @@
 using namespace std;
 #define int long long
 #define pii pair<int, int>
-const int N = 5e5;
+const int N = 1e6;
 int a[N + 5], la[N + 5], ra[N + 5];
 signed main() {
     int n, m, val;
@@ -10,9 +10,9 @@ signed main() {
     for (int i = 1; i <= n; i ++)
         cin >> a[i], la[i] = ra[i] = a[i];
     for (int i = 1; i <= N; i ++)
-        la[i] = max(la[i], l[i - 1]);
+        la[i] = max(la[i], la[i - 1]);
     for (int i = 1; i >= 1; i --)
-        ra[i] = max(ra[i], r[i + 1]);
+        ra[i] = max(ra[i], ra[i + 1]);
     vector<pii> b, c;
     c.push_back({9e18, 9e18});
     for (int i = 1; i <= m; i ++) {
@@ -22,7 +22,7 @@ signed main() {
         for (int s = 1; s <= N; s += len + 1) {
             int t = s + len;
             if (t > N) t = N;
-            int rp = r[s], lp = l[t];
+            int rp = ra[s], lp = la[t];
             if (rp > t || lp < s) continue;
             int cl = l - rp, cr = r - lp;
             if (cr < 1) continue;
