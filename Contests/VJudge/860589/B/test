@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+g++ mountain.cpp -std=c++14 -O2 -static -o run
+time ./run
+diff -w mountain.out mountain.ans
