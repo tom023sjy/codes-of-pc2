@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ file.cpp -std=c++14 -O2 -static -o run && time ./run && diff -w file.out file.ans
