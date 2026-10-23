@@ -17,4 +17,4 @@ struct BIT {
             ret += s[x];
         return ret;
     }
-} t1, t2;
+};

@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define int long long
-
 struct DSU {
     vector<int> f;
     int sz;
@@ -39,8 +35,3 @@ struct DSU {
         f = b.f;
     }
 };
-
-signed main() {
-    
-    return 0;
-}

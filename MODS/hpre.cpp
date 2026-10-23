@@ -1,12 +1,8 @@
-#include <string>
-#include <cstring>
-#include <iostream>
-using namespace std;
 #define int long long
 struct big {
 	int a[100005];
 	int &operator [] (int x) {
-		if (x > 100000) throw "The parameter is incorrect: The address cannot be reached.";
+		if (x > 100000) throw "ValueError!";
 		return a[x];
 	}
 	int size() {
@@ -283,10 +279,4 @@ bool operator > (big a, big b) {
 		if (a[i] != b[i])
 			return a[i] > b[i];
 	return 0;
-}
-signed main() {
-	big a, b;
-	a.get(), b.get();
-	a *= b;
-	a.put();
 }
