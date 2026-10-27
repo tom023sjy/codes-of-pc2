@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define int long long
 int fp(int a, int b, int p) {
 	int ret = 1;
 	for (; b; b >>= 1, a = a * a % p)
@@ -20,8 +17,3 @@ int lucas(int n, int m, int p) {
 	if (m == 0) return 1;
 	return getc(n % p, m % p, p) * lucas(n / p, m / p, p) % p;
 }
-signed main() {
-    
-    return 0;
-}
-

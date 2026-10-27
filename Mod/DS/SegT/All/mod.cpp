@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define int long long
 namespace SegTree {
 	struct UpdateOne {
 		int size;
@@ -153,14 +150,3 @@ namespace SegTree {
 		}
 	};
 } 
-
-// Tester
-signed main() {
-    SegTree::UpdateBlock x;
-	int a[] = {0, 1, 2, 3, 4};
-	x.init(4, a);
-	cout << x.queryBlock(1, 4, 1, 1, 4);
-	x.addBlock(2, 2, 3, 1, 1, 4);
-	cout << x.queryBlock(1, 4, 1, 1, 4);
-    return 0;
-}

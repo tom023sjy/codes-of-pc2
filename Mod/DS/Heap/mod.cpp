@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define int long long
 const int N = 1e6;
 int heap[N + 5], hpsize;
 void tup(int x) {
@@ -38,23 +35,4 @@ int top() {
 }
 int size() {
 	return hpsize;
-}
-
-signed main() {
-    int q;
-    cin >> q;
-    while (q--) {
-        int opt;
-        cin >> opt;
-        if (opt == 1) {
-            int x;
-            cin >> x;
-            add(x);
-        } else if (opt == 2) {
-            cout << top() << endl;
-        } else {
-            pop();
-        }
-    }
-    return 0;
 }
