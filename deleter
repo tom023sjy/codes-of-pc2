@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f -exec file {} + | grep -E 'ELF.*executable|PE32' | awk -F: '{print $1}' | xargs -d '\n' rm -f

@@ -3,13 +3,13 @@ using namespace std;
 typedef long long ll;
 const int N=32,M=101,P=998244353;
 
-int count(ll S)//Çó¶þ½øÖÆ 1µÄ¸öÊý
+int count(ll S)//æ±‚äºŒè¿›åˆ¶ 1çš„ä¸ªæ•°
 {
 	int cnt=0;
 	while(S)
 	{
 		cnt++;
-		S&=S-1;//Ä©Î²1Ïû³ý 
+		S&=S-1;//æœ«å°¾1æ¶ˆé™¤ 
 	}
 	return cnt;
 } 
@@ -17,7 +17,7 @@ int count(ll S)//Çó¶þ½øÖÆ 1µÄ¸öÊý
 ll n,m,k,C[M][M],v[M][N];
 int c[M];
 ll ans=0;
-void dfs(int res,int num)//Ê£Óà£¬µÚNum¸ö 
+void dfs(int res,int num)//å‰©ä½™ï¼Œç¬¬Numä¸ª 
 {
 	if(num==m)
 	{
@@ -31,7 +31,7 @@ void dfs(int res,int num)//Ê£Óà£¬µÚNum¸ö
 			sum-=c[i];
 		}
 		if(count(S)>k) return;
-		//È¨Öµ 
+		//æƒå€¼ 
 		
 		ans=(ans+val*cnt)%P;
 		return;
@@ -44,7 +44,7 @@ void dfs(int res,int num)//Ê£Óà£¬µÚNum¸ö
 }
 
 
-ll dp[M][N][N][16];//µÚ¼¸¸ö,µ±Ç°µÄºÍ£¬1µÄÊýÁ¿£¬µ±Ç°4Î» 
+ll dp[M][N][N][16];//ç¬¬å‡ ä¸ª,å½“å‰çš„å’Œï¼Œ1çš„æ•°é‡ï¼Œå½“å‰4ä½ 
 int main()
 {
 	cin>>n>>m>>k;

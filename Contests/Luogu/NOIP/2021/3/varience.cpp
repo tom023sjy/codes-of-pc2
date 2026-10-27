@@ -43,7 +43,7 @@ int main()
     for(int i=1;i<n;i++)
     {
         if(!d[i]) continue;
-        s+=d[i];//µ±Ç°Êý 
+        s+=d[i];//å½“å‰æ•° 
         for(int j=m;j>=0;j--)
         {
             if(f[j]==INF) continue;
