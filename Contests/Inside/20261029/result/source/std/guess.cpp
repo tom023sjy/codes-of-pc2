@@ -1,0 +1,177 @@
+#include <cstdio>
+#include <random>
+#include <algorithm>
+using namespace std;
+typedef __uint128_t ull;
+char stk[100],*tp;
+mt19937_64 rng(random_device{}());
+ull rd(ull lim){return (ull(rng())<<64|rng())%lim+1;}
+template<typename T>
+void write(T x){
+	tp=stk;
+	if(!x) putchar('0');
+	while(x) *++tp=(x%10)^48,x/=10;
+	while(tp!=stk) putchar(*tp--);
+	putchar('\n');
+}
+template<typename T>
+void read(T &x){
+	x=0;char c=getchar();
+	while(c<48||c>57) c=getchar();
+	do x=(x<<1)+(x<<3)+(c^48),c=getchar();
+	while(c>=48&&c<=57);
+}
+ull mul(ull a,ull b,ull p){
+	ull res=0;
+	while(b){
+		res=(res+(b%10)*a%p)%p;
+		a=10*a%p;b/=10;
+	}
+	return res;
+}
+ull qpow(ull a,ull b,ull p){
+	ull res=1;
+	while(b){
+		if(b&1) res=mul(res,a,p);
+		a=mul(a,a,p);b>>=1;
+	}
+	return res;
+}
+ull qpow(ull a,int b){
+	ull res=1;
+	while(b){
+		if(b&1) res*=a;
+		a*=a;b>>=1;
+	}
+	return res;
+}
+bool is_prime(ull n){
+	if(n==2||n==3||n==5||n==7) return 1;
+	if(n%2==0||n%3==0||n%5==0||n%7==0) return 0;
+	ull e=n-1;int s=0;
+	while(~e&1) e>>=1,++s;
+	for(int it=0;it<10;++it){
+		ull cur=qpow(rd(n-1),e,n);
+		if(cur==1) continue;
+		for(int jt=0;jt<s;++jt){
+			ull nxt=mul(cur,cur,n);
+			if(nxt==1&&cur!=n-1) return 0;
+			cur=nxt;
+			if(cur==1) break;
+		}
+		if(cur!=1) return 0;
+	}
+	return 1;
+}
+ull gcd(ull a,ull b){
+	if(!b) return a;
+	return gcd(b,a%b);
+}
+ull m,ex,num;
+ull pr_list[100003];
+int rk;
+void get_factor(ull);
+void factorize(ull n){
+	if(n==1) return;
+	ull l,r;
+	l=211;r=1414213562373095168;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=x*x;
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	l=211;r=1259921049895;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=x*x*x;
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	l=211;r=18205643;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=qpow(x,5);
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	l=211;r=153413;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=qpow(x,7);
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	l=211;r=1996;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=qpow(x,11);
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	l=211;r=620;
+	while(l<=r){
+		ull x=(l+r)>>1;
+		ull cur=qpow(x,13);
+		if(cur==n) return factorize(x);
+		if(cur<n) l=x+1;
+		if(cur>n) r=x-1;
+	}
+	if(is_prime(n)) pr_list[rk++]=n;
+	else get_factor(n);
+}
+void get_factor(ull n){
+	ull a;
+	while(1){
+		a=rd(n-1);
+		while(gcd(a,n)>1) a=rd(n-1);
+		ull ans=qpow(a,m,n);
+		if(ans==1) break;
+		else return factorize(gcd(n,ans-1));
+	}
+	ull cur=qpow(a,ex,n);
+	if(cur==1) return get_factor(n);
+	ull nxt=mul(cur,cur,n);
+	while(nxt!=1) cur=nxt,nxt=mul(cur,cur,n);
+	if(cur==n-1) return get_factor(n);
+	ull fact=gcd(cur-1,n);
+	factorize(fact);factorize(n/fact);
+}
+const int small_pr[46]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61
+					  ,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137
+					  ,139,149,151,157,163,167,173,179,181,191,193,197,199};
+void solve(){
+	read(m);m<<=1;ex=num=m;
+	rk=0;while(~ex&1) ex>>=1;
+	for(int it=0;it<46;++it){
+		int cpr=small_pr[it];
+		if(num%cpr) continue;
+		pr_list[rk++]=cpr;
+		while(num%cpr==0) num/=cpr;
+	}
+	factorize(num);
+	sort(pr_list,pr_list+rk);
+	rk=unique(pr_list,pr_list+rk)-pr_list;
+	reverse(pr_list,pr_list+rk);
+	ull res=1;
+	for(int i=0;i<rk;++i){
+		ull cpr=pr_list[i];
+		if(m%cpr) continue;
+		int cnt=0;
+		while(m%cpr==0) m/=cpr,++cnt;
+		m/=cpr-1;res*=qpow(cpr,(cnt+1)>>1);
+	}
+	write(res);
+}
+int main(){
+	freopen("guess.in","r",stdin);
+	freopen("guess.out","w",stdout);
+	int tc;read(tc);
+	while(tc--) solve();
+	return 0;
+}
